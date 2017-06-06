@@ -5,6 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using SimpleCQRS;
+using SimpleCQRS.Infrastructure;
+using SimpleCQRS.Domain;
+using SimpleCQRS.CommandHandlers;
+using SimpleCQRS.Commands;
+using SimpleCQRS.ReadModels;
+using SimpleCQRS.Events;
 
 namespace CQRSGui
 {

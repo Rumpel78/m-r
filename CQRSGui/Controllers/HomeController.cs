@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
 using SimpleCQRS;
+using SimpleCQRS.ReadModels;
+using SimpleCQRS.Infrastructure;
+using SimpleCQRS.Commands;
 
 namespace CQRSGui.Controllers
 {

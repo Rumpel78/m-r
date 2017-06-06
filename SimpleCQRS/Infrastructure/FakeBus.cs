@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SimpleCQRS.Commands;
+using SimpleCQRS.Events;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace SimpleCQRS
+namespace SimpleCQRS.Infrastructure
 {
     public class FakeBus : ICommandSender, IEventPublisher
     {
@@ -12,7 +14,7 @@ namespace SimpleCQRS
         {
             List<Action<Message>> handlers;
 
-            if(!_routes.TryGetValue(typeof(T), out handlers))
+            if (!_routes.TryGetValue(typeof(T), out handlers))
             {
                 handlers = new List<Action<Message>>();
                 _routes.Add(typeof(T), handlers);
@@ -42,7 +44,7 @@ namespace SimpleCQRS
 
             if (!_routes.TryGetValue(@event.GetType(), out handlers)) return;
 
-            foreach(var handler in handlers)
+            foreach (var handler in handlers)
             {
                 //dispatch on thread pool for added awesomeness
                 var handler1 = handler;
